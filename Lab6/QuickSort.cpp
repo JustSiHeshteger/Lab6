@@ -1,0 +1,63 @@
+#include "QuickSort.h"
+
+QuickSort::QuickSort(std::vector<int>& arr) {
+	this->resetCountCompare();
+	this->arr = arr;
+}
+
+void QuickSort::sort(int start, int end, short type) {
+    if (start >= end) {
+        return;
+    }
+
+    int pivot = getPivot(start, end, type);
+    sort(start, pivot - 1, type);
+    sort(pivot + 1, end, type);
+}
+
+int QuickSort::getPivot(int start, int end, short type) {
+    int pivot = this->arr[end];
+    int pIndex = start;
+
+    for (int i = start; i < end; i++)
+    {
+        if (type == 0) {
+            if (this->arr[i] <= pivot)
+            {
+                swapElements(i, pIndex);
+                pIndex++;
+            }
+        }
+        else if (type == 1) {
+            if (this->arr[i] >= pivot)
+            {
+                swapElements(i, pIndex);
+                pIndex++;
+            }
+        }
+
+        this->countCompare++;
+    }
+
+    swapElements(pIndex, end);
+
+    return pIndex;
+}
+
+void QuickSort::sortByIncrease() {
+	this->resetCountCompare();
+	this->resetCountSwap();
+
+	this->sort(0, this->arr.size() - 1, 0);
+}
+
+void QuickSort::sortByDecrease() {
+	this->resetCountCompare();
+	this->resetCountSwap();
+
+    this->sort(0, this->arr.size() - 1, 1);
+}
+
+std::string QuickSort::getSortType() {
+	return "Quick sort:";
+}
