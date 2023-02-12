@@ -1,4 +1,5 @@
 #include "BubbleSort.h"
+#include "Timer.h"
 
 BubbleSort::BubbleSort(std::vector<int>& arr) {
 	this->resetCountCompare();
@@ -7,10 +8,10 @@ BubbleSort::BubbleSort(std::vector<int>& arr) {
 }
 
 void BubbleSort::sortByIncrease() {
-	this->resetCountCompare();
-	this->resetCountSwap();
 	size_t arrSize = this->arr.size();
 	int currentSwap = 0;
+
+	Timer t;
 
 	for (size_t i = arrSize; i != 1; i--) {
 		for (size_t j = 1; j < i; j++) {
@@ -26,13 +27,15 @@ void BubbleSort::sortByIncrease() {
 			break;
 		}
 	}
+
+	this->duration += t.getDuration();
 }
 
 void BubbleSort::sortByDecrease() {
-	this->resetCountCompare();
-	this->resetCountSwap();
 	size_t arrSize = this->arr.size();
 	int currentSwap = 0;
+
+	Timer t;
 
 	for (size_t i = arrSize; i != 1; i--) {
 		for (size_t j = 1; j < i; j++) {
@@ -48,6 +51,8 @@ void BubbleSort::sortByDecrease() {
 			break;
 		}
 	}
+
+	this->duration += t.getDuration();
 }
 
 std::string BubbleSort::getSortType() {

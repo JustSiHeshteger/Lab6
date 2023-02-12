@@ -1,7 +1,9 @@
 #include "QuickSort.h"
+#include "Timer.h"
 
 QuickSort::QuickSort(std::vector<int>& arr) {
 	this->resetCountCompare();
+    this->resetCountSwap();
 	this->arr = arr;
 }
 
@@ -45,17 +47,19 @@ int QuickSort::getPivot(int start, int end, short type) {
 }
 
 void QuickSort::sortByIncrease() {
-	this->resetCountCompare();
-	this->resetCountSwap();
+    Timer t;
 
 	this->sort(0, this->arr.size() - 1, 0);
+
+    this->duration += t.getDuration();
 }
 
 void QuickSort::sortByDecrease() {
-	this->resetCountCompare();
-	this->resetCountSwap();
+    Timer t;
 
     this->sort(0, this->arr.size() - 1, 1);
+
+    this->duration += t.getDuration();
 }
 
 std::string QuickSort::getSortType() {

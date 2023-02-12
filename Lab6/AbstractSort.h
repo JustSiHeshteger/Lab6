@@ -1,12 +1,14 @@
 #pragma once
 #include <vector>
 #include <string>
+#include <chrono>
 
 class AbstractSort
 {
 protected:
 	int countCompare;
 	int countSwap;
+	float duration;
 	std::vector<int> arr;
 
 	void swapElements(size_t i, size_t j);
@@ -23,6 +25,8 @@ public:
 
 	int getCountCompare();
 	int getCountSwap();
+	float getDuration();
+	void resetParameters();
 
 	void setArray(std::vector<int>& arr);
 	std::vector<int> getArray();

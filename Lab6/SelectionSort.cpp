@@ -1,4 +1,5 @@
 #include "SelectionSort.h"
+#include "Timer.h"
 
 SelectionSort::SelectionSort(std::vector<int>& arr) {
 	this->resetCountCompare();
@@ -7,9 +8,9 @@ SelectionSort::SelectionSort(std::vector<int>& arr) {
 }
 
 void SelectionSort::sortByIncrease() {
-	this->resetCountCompare();
-	this->resetCountSwap();
 	size_t arrSize = this->arr.size();
+
+	Timer t;
 
 	for (size_t i = 0; i < arrSize - 1; i++) {
 		int min = this->arr[i];
@@ -26,12 +27,14 @@ void SelectionSort::sortByIncrease() {
 
 		this->swapElements(i, minIndex);
 	}
+
+	this->duration += t.getDuration();
 }
 
 void SelectionSort::sortByDecrease() {
-	this->resetCountCompare();
-	this->resetCountSwap();
 	size_t arrSize = this->arr.size();
+
+	Timer t;
 
 	for (size_t i = 0; i < arrSize - 1; i++) {
 		int max = this->arr[i];
@@ -48,6 +51,8 @@ void SelectionSort::sortByDecrease() {
 
 		this->swapElements(i, maxIndex);
 	}
+
+	this->duration += t.getDuration();
 }
 
 std::string SelectionSort::getSortType() {

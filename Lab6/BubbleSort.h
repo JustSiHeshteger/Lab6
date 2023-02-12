@@ -1,5 +1,6 @@
 #pragma once
 #include "AbstractSort.h"
+#include "Timer.h"
 
 class BubbleSort : public AbstractSort
 {

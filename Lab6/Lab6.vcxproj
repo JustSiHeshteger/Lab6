@@ -141,19 +141,25 @@
   <ItemGroup>
     <ClCompile Include="AbstractSort.cpp" />
     <ClCompile Include="BubbleSort.cpp" />
-    <ClCompile Include="InsertSort.cpp" />
+    <ClCompile Include="InsertionSort.cpp" />
     <ClCompile Include="Lab6.cpp" />
+    <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="QuickSort.cpp" />
     <ClCompile Include="SelectionSort.cpp" />
     <ClCompile Include="ShellSort.cpp" />
+    <ClCompile Include="Timer.cpp" />
+    <ClCompile Include="Validator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AbstractSort.h" />
     <ClInclude Include="BubbleSort.h" />
-    <ClInclude Include="InsertSort.h" />
+    <ClInclude Include="InsertionSort.h" />
+    <ClInclude Include="Matrix.h" />
     <ClInclude Include="QuickSort.h" />
     <ClInclude Include="SelectionSort.h" />
     <ClInclude Include="ShellSort.h" />
+    <ClInclude Include="Timer.h" />
+    <ClInclude Include="Validator.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

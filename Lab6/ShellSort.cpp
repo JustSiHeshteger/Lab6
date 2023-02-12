@@ -1,4 +1,5 @@
 #include "ShellSort.h"
+#include "Timer.h"
 
 ShellSort::ShellSort(std::vector<int>& arr) {
 	this->resetCountCompare();
@@ -7,9 +8,9 @@ ShellSort::ShellSort(std::vector<int>& arr) {
 }
 
 void ShellSort::sortByIncrease() {
-	this->resetCountCompare();
-	this->resetCountSwap();
 	size_t arrSize = this->arr.size();
+
+	Timer t;
 
 	for (size_t step = arrSize / 2; step > 0; step /= 2) {
 		for (size_t i = step; i < arrSize; ++i) {
@@ -22,12 +23,14 @@ void ShellSort::sortByIncrease() {
 			}
 		}
 	}
+
+	this->duration += t.getDuration();
 }
 
 void ShellSort::sortByDecrease() {
-	this->resetCountCompare();
-	this->resetCountSwap();
 	size_t arrSize = this->arr.size();
+
+	Timer t;
 
 	for (size_t step = arrSize / 2; step > 0; step /= 2) {
 		for (size_t i = step; i < arrSize; ++i) {
@@ -40,6 +43,8 @@ void ShellSort::sortByDecrease() {
 			}
 		}
 	}
+
+	this->duration += t.getDuration();
 }
 
 std::string ShellSort::getSortType() {

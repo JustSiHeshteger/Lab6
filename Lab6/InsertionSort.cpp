@@ -1,15 +1,16 @@
-#include "InsertSort.h"
+#include "InsertionSort.h"
+#include "Timer.h"
 
-InsertSort::InsertSort(std::vector<int>& arr) {
+InsertionSort::InsertionSort(std::vector<int>& arr) {
 	this->resetCountCompare();
 	this->resetCountSwap();
 	this->arr = arr;
 }
 
-void InsertSort::sortByIncrease() {
-	this->resetCountCompare();
-	this->resetCountSwap();
+void InsertionSort::sortByIncrease() {
 	size_t arrSize = this->arr.size();
+
+	Timer t;
 
 	for (size_t i = 1; i < arrSize; i++) { 
 		size_t k = i;
@@ -23,12 +24,14 @@ void InsertSort::sortByIncrease() {
 			this->countCompare++;
 		}
 	}
+
+	this->duration += t.getDuration();
 }
 
-void InsertSort::sortByDecrease() {
-	this->resetCountCompare();
-	this->resetCountSwap();
+void InsertionSort::sortByDecrease() {
 	size_t arrSize = this->arr.size();
+
+	Timer t;
 
 	for (size_t i = 1; i < arrSize; i++) { 
 		size_t k = i;
@@ -42,8 +45,10 @@ void InsertSort::sortByDecrease() {
 			this->countCompare++;
 		}
 	}
+
+	this->duration += t.getDuration();
 }
 
-std::string InsertSort::getSortType() {
-	return "Insert sort:";
+std::string InsertionSort::getSortType() {
+	return "Insertion sort:";
 }
